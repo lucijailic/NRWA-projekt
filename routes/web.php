@@ -15,3 +15,6 @@ Route::resource('customers', CustomersController::class);
 Route::resource('products', ProductController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('colors', ColorController::class);
+Route::get('/vue/{any?}', function () {
+    return view('vue');
+})->where('any', '.*');
