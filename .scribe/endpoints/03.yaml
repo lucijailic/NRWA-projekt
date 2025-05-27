@@ -26,9 +26,13 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"message":"API radi!"}'
+        status: 401
+        content: |-
+          {
+              "message": "Invalid credentials."
+          }
         headers:
+          www-authenticate: Basic
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'

@@ -1,13 +1,17 @@
-# Introduction
+## Autentikacija
 
+Ova API dokumentacija koristi HTTP Basic autentikaciju.
 
+### Testni korisnički račun
 
-<aside>
-    <strong>Base URL</strong>: <code>http://localhost</code>
-</aside>
+Za potrebe testiranja putem Postman aplikacije koristite sljedeći račun:
 
-    This documentation aims to provide all the information you need to work with our API.
+- **Email (korisničko ime)**: `test@example.com`
+- **Lozinka**: `lozinka123`
 
-    <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
-    You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+U Postmanu, otvorite tab **Authorization**, postavite:
+- Type: `Basic Auth`
+- Username: `test@example.com`
+- Password: `lozinka123`
 
+Svi zaštićeni API zahtjevi zahtijevaju ovu autentikaciju.

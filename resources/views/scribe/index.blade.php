@@ -56,14 +56,9 @@
     </div>
 
     <div id="toc">
-                    <ul id="tocify-header-introduction" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="introduction">
-                    <a href="#introduction">Introduction</a>
-                </li>
-                            </ul>
-                    <ul id="tocify-header-authenticating-requests" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="authenticating-requests">
-                    <a href="#authenticating-requests">Authenticating requests</a>
+                    <ul id="tocify-header-autentikacija" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="autentikacija">
+                    <a href="#autentikacija">Autentikacija</a>
                 </li>
                             </ul>
                     <ul id="tocify-header-categories" class="tocify-header">
@@ -182,24 +177,45 @@ Briše proizvod iz baze prema ID-u.</a>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: May 25, 2025</li>
+        <li>Last updated: May 27, 2025</li>
     </ul>
 </div>
 
 <div class="page-wrapper">
     <div class="dark-box"></div>
     <div class="content">
-        <h1 id="introduction">Introduction</h1>
-<aside>
-    <strong>Base URL</strong>: <code>http://localhost</code>
-</aside>
-<pre><code>This documentation aims to provide all the information you need to work with our API.
+        <h2 id="autentikacija">Autentikacija</h2>
+<p>Ova API dokumentacija koristi HTTP Basic autentikaciju.</p>
+<h3 id="testni-korisnicki-racun">Testni korisnički račun</h3>
+<p>Za potrebe testiranja putem Postman aplikacije koristite sljedeći račun:</p>
+<ul>
+<li><strong>Email (korisničko ime)</strong>: <code>test@example.com</code></li>
+<li><strong>Lozinka</strong>: <code>lozinka123</code></li>
+</ul>
+<p>U Postmanu, otvorite tab <strong>Authorization</strong>, postavite:</p>
+<ul>
+<li>Type: <code>Basic Auth</code></li>
+<li>Username: <code>test@example.com</code></li>
+<li>Password: <code>lozinka123</code></li>
+</ul>
+<p>Svi zaštićeni API zahtjevi zahtijevaju ovu autentikaciju.</p>
 
-&lt;aside&gt;As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
-You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).&lt;/aside&gt;</code></pre>
-
-        <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>This API is not authenticated.</p>
+        <h1 id="autentikacija">Autentikacija</h1>
+<p>Ovaj API koristi <strong>HTTP Basic autentikaciju</strong>.</p>
+<h3 id="kako-koristiti">Kako koristiti</h3>
+<p>Za svaki zahtjev prema zaštićenim rutama, moraš uključiti HTTP Basic Auth header.</p>
+<p>U Postmanu ili sličnom alatu:</p>
+<ul>
+<li>Postavi <strong>Authorization type</strong> na <code>Basic Auth</code></li>
+<li>
+<p>Unesi sljedeće podatke:</p>
+<ul>
+<li><strong>Username (Email)</strong>: <code>test@example.com</code></li>
+<li><strong>Password</strong>: <code>lozinka123</code></li>
+</ul>
+</li>
+</ul>
+<p>Svi zahtjevi će automatski imati odgovarajući <code>Authorization</code> header u formatu:</p>
 
         <h1 id="categories">Categories</h1>
 
@@ -1968,19 +1984,20 @@ fetch(url, {
 
 <span id="example-responses-GETapi-test-api">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
                 <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
             </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
+            <pre><code class="language-http">www-authenticate: Basic
+cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;API radi!&quot;
+    &quot;message&quot;: &quot;Invalid credentials.&quot;
 }</code>
  </pre>
     </span>
